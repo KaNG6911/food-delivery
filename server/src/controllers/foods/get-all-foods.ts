@@ -20,7 +20,7 @@ export const getAllFoods = async (
       success: true,
       count: foods.length,
       data: foods,
-    });
+    }); 
   } catch (error: any) {
     res.status(500).json({
       success: false,

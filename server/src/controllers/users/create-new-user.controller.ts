@@ -38,7 +38,7 @@ export const createNewUser = async (
       address,
     });
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: "Бүртгэл амжилттай!",
       user: {

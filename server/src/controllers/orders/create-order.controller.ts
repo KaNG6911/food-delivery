@@ -61,7 +61,7 @@ export const createOrder = async (
       totalPrice,
     });
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: "Захиалга амжилттай үүсгэгдлээ",
       data: order,

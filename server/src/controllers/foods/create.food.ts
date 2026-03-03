@@ -17,7 +17,7 @@ export const createFood = async (
       discount: discount || 0,
     });
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: "Хоол амжилттай үүсгэгдлээ",
       data: food,
