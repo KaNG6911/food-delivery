@@ -36,7 +36,7 @@ export const POST = async (request: NextRequest) => {
       message: "Sign in successful",
       accessToken,
       refreshToken,
-      user: { id: user._id, name: user.name, email: user.email, role: user.role },
+      user: { _id: user._id, name: user.name, email: user.email, role: user.role },
     });
   } catch (error) {
     return NextResponse.json({ error: `Internal server error ${error}` }, { status: 500 });
