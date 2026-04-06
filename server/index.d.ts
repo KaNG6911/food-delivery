@@ -1,13 +1,13 @@
-interface TokenPayload {
+type TokenPayload = {
   email: string;
   userId: string;
   role: "user" | "admin";
-}
+};
 
-interface AuthError {
+type AuthError = {
   status: number;
   message: string;
-}
+};
 
 type Params = { params: Promise<{ id: string }> };
 
