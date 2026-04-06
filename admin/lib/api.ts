@@ -5,10 +5,7 @@ const getAuthToken = (): string | null => {
   return localStorage.getItem("accessToken");
 };
 
-export const apiFetch = async <T = unknown>(
-  path: string,
-  options: RequestInit = {}
-): Promise<T> => {
+export const apiFetch = async <T = unknown>(path: string, options: RequestInit = {}): Promise<T> => {
   const token = getAuthToken();
 
   const res = await fetch(`${API_URL}${path}`, {
@@ -22,7 +19,8 @@ export const apiFetch = async <T = unknown>(
 
   if (!res.ok) {
     const error = await res.json().catch(() => ({ message: "Request failed" }));
-    throw new Error((error as { message?: string }).message ?? "Request failed");
+    const err = error as { message?: string; error?: string };
+    throw new Error(err.message ?? err.error ?? "Request failed");
   }
 
   return res.json() as Promise<T>;

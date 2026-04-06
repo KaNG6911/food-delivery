@@ -1,5 +1,4 @@
-import { AdminFoodsSection } from "@/components/admin/food-menu/AdminFoodsSection";
-import { DishesCategory } from "@/components/admin/food-menu/DishesCategory";
+import { DishesCategory, AdminFoodsSection } from "@/app/food-menu/_components";
 
 export default function AdminFoodMenu() {
   return (
