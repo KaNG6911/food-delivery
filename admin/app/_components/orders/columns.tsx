@@ -1,13 +1,13 @@
 "use client";
 
 import { format } from "date-fns";
-import { Checkbox } from "@/components/ui/checkbox";
-import { ColumnDef } from "@tanstack/react-table";
-import FoodDetailPopover from "./FoodDetailPopover";
 import DeliveryStatus from "./DeliveryStatus";
-import { Dispatch, SetStateAction } from "react";
-import { Button } from "@/components/ui/button";
 import { ChevronsUpDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dispatch, SetStateAction } from "react";
+import { ColumnDef } from "@tanstack/react-table";
+import { Checkbox } from "@/components/ui/checkbox";
+import FoodDetailPopover from "./FoodDetailPopover";
 
 export const columns: ColumnDef<AllFoodOrders>[] = [
   {

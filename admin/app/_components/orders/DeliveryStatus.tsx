@@ -1,10 +1,10 @@
 "use client";
-import { updateOrder } from "@/services/update-order";
+import { getBorderColor } from "@/lib";
 import { ChevronsUpDown } from "lucide-react";
+import { FoodOrderStatusEnum } from "@/constants";
+import { updateOrder } from "@/services/update-order";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { getBorderColor } from "@/lib";
-import { FoodOrderStatusEnum } from "@/constants";
 
 type DeliveryStatusProps = {
   status: FoodOrderStatusEnum;
