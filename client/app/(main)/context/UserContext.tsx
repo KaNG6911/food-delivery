@@ -17,6 +17,7 @@ type UserContextType = {
   loading: boolean;
   setUser: Dispatch<SetStateAction<User | undefined>>;
   login: (_email: string, _password: string) => Promise<void>;
+  logout: () => void;
 };
 
 export const UserContext = createContext<UserContextType>(
@@ -27,6 +28,13 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { push } = useRouter();
   const [user, setUser] = useState<User | undefined>(undefined);
   const [loading, setLoading] = useState(true);
+
+  const logout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    setUser(undefined);
+    push("/login");
+  };
 
   const login = async (email: string, password: string) => {
     const data = await handleSignIn({ email, password });
@@ -51,7 +59,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, login, setUser, loading }}>
+    <UserContext.Provider value={{ user, login, logout, setUser, loading }}>
       {children}
     </UserContext.Provider>
   );

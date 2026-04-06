@@ -5,11 +5,7 @@ import { Footer } from "@/app/(main)/_components/Footer";
 import { CartProvider, UserProvider } from "@/app/(main)/context";
 import { Toaster } from "sonner";
 
-export default function MainLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <UserProvider>
       <CartProvider>

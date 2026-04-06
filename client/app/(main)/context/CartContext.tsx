@@ -15,9 +15,7 @@ type CartContextType = {
   clearCart: () => void;
 };
 
-export const CartContext = createContext<CartContextType>(
-  {} as CartContextType
-);
+export const CartContext = createContext<CartContextType>({} as CartContextType);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartData, setCartData] = useState<CartDataTypes[]>([]);
@@ -41,18 +39,13 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   }, [cartData]);
 
   useEffect(() => {
-    const total = cartData.reduce(
-      (sum, item) => sum + item.food.price * item.quantity,
-      0
-    );
+    const total = cartData.reduce((sum, item) => sum + item.food.price * item.quantity, 0);
     setTotalPrice(total.toFixed(2));
   }, [cartData]);
 
   const addItem = (item: CartDataTypes, quantity: number = 1) => {
     setCartData((prevCart) => {
-      const existingItem = prevCart.find(
-        (cartItem) => cartItem.food._id === item.food._id
-      );
+      const existingItem = prevCart.find((cartItem) => cartItem.food._id === item.food._id);
 
       if (!existingItem) {
         return [...prevCart, { ...item, quantity }];
@@ -70,9 +63,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const removeItem = (itemId: string) => {
-    setCartData((prevCart) =>
-      prevCart.filter((cartItem) => cartItem.food._id !== itemId)
-    );
+    setCartData((prevCart) => prevCart.filter((cartItem) => cartItem.food._id !== itemId));
   };
 
   const addQuantity = (itemId: string) => {
@@ -85,7 +76,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
           ...cartItem,
           quantity: cartItem.quantity + 1,
         };
-      })
+      }),
     );
   };
 
@@ -99,7 +90,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
           ...cartItem,
           quantity: Math.max(0, cartItem.quantity - 1),
         };
-      })
+      }),
     );
   };
 
