@@ -1,13 +1,13 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { FoodOrderStatusEnum } from "@/constants";
-import { getBorderColor, getOptionStyles } from "@/lib";
-import { updateMultipleOrder } from "@/services/update-multiple-order";
 
 import { X } from "lucide-react";
+import { getBorderColor } from "@/lib";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { FoodOrderStatusEnum } from "@/constants";
 import { Dispatch, SetStateAction, useState } from "react";
+import { updateMultipleOrder } from "@/services/update-multiple-order";
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 type MultiDeliveryStatusProps = {
   selectedColumnIds: string[];
@@ -44,6 +44,7 @@ const MultiDeliveryStatus = ({ selectedColumnIds, setRowSelection, setFoodOrders
           )}
         </Button>
       </DialogTrigger>
+
       <DialogContent className="w-105 gap-6">
         <DialogHeader className="flex flex-row items-center justify-between space-y-0">
           <DialogTitle className="mt-1 text-sm font-medium">Change delivery state</DialogTitle>
@@ -74,6 +75,7 @@ const MultiDeliveryStatus = ({ selectedColumnIds, setRowSelection, setFoodOrders
             </Button>
           ))}
         </div>
+
         <DialogFooter className="w-full">
           <DialogClose asChild>
             <Button className="w-full h-9 rounded-full" onClick={handleSaveStatus}>

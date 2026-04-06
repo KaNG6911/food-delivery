@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 const ACCESS_SECRET = process.env.JWT_SECRET!;
 
 export const generateAccessToken = (payload: TokenPayload): string => {
-  return jwt.sign(payload, ACCESS_SECRET, { expiresIn: "15m" });
+  return jwt.sign(payload, ACCESS_SECRET, { expiresIn: "7d" });
 };
 
 export const generateRefreshToken = (payload: TokenPayload): string => {
