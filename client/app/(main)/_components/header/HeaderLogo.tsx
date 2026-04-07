@@ -1,11 +1,6 @@
 import { NomNomLogo } from "@/components/icons";
-import Image from "next/legacy/image";
 
-export const HeaderLogo = ({
-  textColor = ["white", "#EF4444", "white"],
-}: {
-  textColor?: string[];
-}) => {
+export const HeaderLogo = ({ textColor = ["white", "#EF4444", "white"] }: { textColor?: string[] }) => {
   return (
     <div className="flex items-center gap-3 cursor-pointer">
       <NomNomLogo width={36} height={36} />

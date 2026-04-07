@@ -9,13 +9,7 @@ export const OrderSheetCart = () => {
   const renderFoodCard = () => {
     if (cartData?.length) {
       return cartData?.map((item) => {
-        return (
-          <OrderSheetFoodItem
-            key={item.food._id}
-            food={item.food}
-            quantity={item.quantity}
-          />
-        );
+        return <OrderSheetFoodItem key={item.food._id} food={item.food} quantity={item.quantity} />;
       });
     }
     return <OrderSheetEmptyCard />;
@@ -27,9 +21,7 @@ export const OrderSheetCart = () => {
         <CardTitle>My cart</CardTitle>
       </CardHeader>
 
-      <CardContent className="h-full p-4 pb-10 overflow-scroll">
-        {renderFoodCard()}
-      </CardContent>
+      <CardContent className="h-full p-4 pb-10 overflow-scroll">{renderFoodCard()}</CardContent>
     </Card>
   );
 };

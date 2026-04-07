@@ -7,13 +7,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context";
 import { formatMoney } from "@/lib";
 
-export const OrderSheetFoodItem = ({
-  food,
-  quantity,
-}: {
-  food: Food;
-  quantity: number;
-}) => {
+export const OrderSheetFoodItem = ({ food, quantity }: { food: Food; quantity: number }) => {
   const { addQuantity, subtractQuantity, removeItem } = useContext(CartContext);
 
   const handleAddQuantity = () => {
@@ -33,13 +27,7 @@ export const OrderSheetFoodItem = ({
     <>
       <div className="flex gap-3">
         <div className="w-[124px] h-[120px] relative rounded-lg overflow-hidden">
-          <Image
-            className="fill"
-            src={food?.image}
-            objectFit="cover"
-            layout="fill"
-            alt={food?.foodName}
-          />
+          <Image className="fill" src={food?.image} objectFit="cover" layout="fill" alt={food?.foodName} />
         </div>
 
         <div className="w-[300px] flex flex-col justify-between">

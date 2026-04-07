@@ -1,15 +1,10 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SidebarDashLine } from "@/components/icons";
 import { useContext, useState } from "react";
+import { useRouter } from "next/navigation";
 import { CartContext, UserContext } from "../../context";
 import { createOrder, formatMoney } from "@/lib";
 import { toast } from "sonner";
@@ -18,12 +13,13 @@ import { Textarea } from "@/components/ui/textarea";
 export const OrderSheetPayment = ({ openModal }: { openModal: () => void }) => {
   const { totalPrice, cartData, clearCart } = useContext(CartContext);
   const { user } = useContext(UserContext);
+  const { push } = useRouter();
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const totalPriceWithFee = Number(totalPrice) + 5000;
 
   const handleCreateOrder = async () => {
     if (!user) {
-      toast.error("Please log in to place an order.");
+      push("/login");
       return;
     }
 
@@ -92,11 +88,7 @@ export const OrderSheetPayment = ({ openModal }: { openModal: () => void }) => {
       </CardContent>
 
       <CardFooter className="p-4">
-        <Button
-          size="lg"
-          className="w-full bg-red-500 rounded-full"
-          onClick={handleCreateOrder}
-        >
+        <Button size="lg" className="w-full bg-red-500 rounded-full" onClick={handleCreateOrder}>
           Checkout
         </Button>
       </CardFooter>

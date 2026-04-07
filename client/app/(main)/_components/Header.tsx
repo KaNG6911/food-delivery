@@ -34,11 +34,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <OrderSheet
-        open={open}
-        closeSidebar={closeSidebar}
-        openModal={openModal}
-      />
+      <OrderSheet open={open} closeSidebar={closeSidebar} openModal={openModal} />
 
       <OrderSheetSuccessDialog open={modalOpen} closeModal={closeModal} />
     </header>

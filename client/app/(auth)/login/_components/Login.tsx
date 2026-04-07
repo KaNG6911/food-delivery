@@ -83,6 +83,7 @@ export const Login = () => {
           <FooterButtons
             buttonDisable={isButtonDisabled}
             buttonText="Let`s Go"
+            loading={formik.isSubmitting}
           />
         </form>
       </CardContent>

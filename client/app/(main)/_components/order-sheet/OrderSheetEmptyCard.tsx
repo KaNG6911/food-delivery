@@ -7,10 +7,7 @@ export const OrderSheetEmptyCard = () => {
 
       <h3 className="font-bold">Your cart is empty</h3>
 
-      <p className="text-center text-xs w-80">
-        Hungry? 🍔 Add some delicious dishes to your cart and satisfy your
-        cravings!
-      </p>
+      <p className="text-center text-xs w-80">Hungry? 🍔 Add some delicious dishes to your cart and satisfy your cravings!</p>
     </div>
   );
 };

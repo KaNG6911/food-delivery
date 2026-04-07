@@ -1,20 +1,6 @@
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ChevronRight, MapPin, X } from "lucide-react";
-import {
-  ChangeEventHandler,
-  MouseEventHandler,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { ChangeEventHandler, MouseEventHandler, useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,9 +20,7 @@ export const HeaderAddressSelectButton = () => {
     }
   }, [setUser]);
 
-  const handleAddressChange: ChangeEventHandler<HTMLTextAreaElement> = (
-    event
-  ) => {
+  const handleAddressChange: ChangeEventHandler<HTMLTextAreaElement> = (event) => {
     setUserLocation(event.target.value);
   };
 
@@ -59,14 +43,8 @@ export const HeaderAddressSelectButton = () => {
     if (user?.address)
       return (
         <div className="flex items-center justify-between w-full">
-          <p className="text-sm text-black truncate w-52 text-start">
-            {user?.address}
-          </p>
-          <X
-            className="z-50 text-black/50"
-            onClick={handleUserAddressClear}
-            size={16}
-          />
+          <p className="text-sm text-black truncate w-52 text-start">{user?.address}</p>
+          <X className="z-50 text-black/50" onClick={handleUserAddressClear} size={16} />
         </div>
       );
     return (
@@ -88,15 +66,9 @@ export const HeaderAddressSelectButton = () => {
       </DialogTrigger>
       <DialogContent className="w-[480px]">
         <DialogHeader className="flex flex-row items-center justify-between space-y-0">
-          <DialogTitle className="mt-1 text-lg font-semibold">
-            Delivery address
-          </DialogTitle>
+          <DialogTitle className="mt-1 text-lg font-semibold">Delivery address</DialogTitle>
           <DialogClose asChild>
-            <Button
-              type="button"
-              className="px-2 py-2 -mt-2 rounded-full bg-muted w-7 h-7"
-              variant="secondary"
-            >
+            <Button type="button" className="px-2 py-2 -mt-2 rounded-full bg-muted w-7 h-7" variant="secondary">
               <X size={12} strokeWidth={1.2} />
             </Button>
           </DialogClose>

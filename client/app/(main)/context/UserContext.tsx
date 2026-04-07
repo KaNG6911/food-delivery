@@ -4,13 +4,7 @@ import { User } from "@/types";
 import { handleSignIn } from "@/lib";
 import { getCurrentUser } from "@/lib/services/user";
 import { useRouter } from "next/navigation";
-import React, {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 
 type UserContextType = {
   user?: User;
@@ -20,9 +14,7 @@ type UserContextType = {
   logout: () => void;
 };
 
-export const UserContext = createContext<UserContextType>(
-  {} as UserContextType
-);
+export const UserContext = createContext<UserContextType>({} as UserContextType);
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { push } = useRouter();
@@ -58,9 +50,5 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     loadUser();
   }, []);
 
-  return (
-    <UserContext.Provider value={{ user, login, logout, setUser, loading }}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={{ user, login, logout, setUser, loading }}>{children}</UserContext.Provider>;
 };

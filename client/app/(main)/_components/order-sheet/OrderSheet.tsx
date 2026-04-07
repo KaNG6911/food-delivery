@@ -1,9 +1,4 @@
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { ShoppingCart } from "lucide-react";
 import { OrderSheetContents } from ".";
 
@@ -13,11 +8,7 @@ type OrderSheetProps = {
   openModal: () => void;
 };
 
-export const OrderSheet = ({
-  open,
-  closeSidebar,
-  openModal,
-}: OrderSheetProps) => {
+export const OrderSheet = ({ open, closeSidebar, openModal }: OrderSheetProps) => {
   return (
     <Sheet open={open} onOpenChange={closeSidebar}>
       <SheetContent className="sm:max-w-[535px] rounded-s-lg border-none bg-[#404040]">

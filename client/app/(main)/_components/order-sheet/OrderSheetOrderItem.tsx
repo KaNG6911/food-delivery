@@ -42,16 +42,12 @@ export const OrderSheetOrderItem = ({ order }: { order: AllFoodOrders }) => {
 
       <div className="flex items-center gap-2">
         <Timer strokeWidth={1} size={16} />
-        <p className="text-muted-foreground text-xs">
-          {format(new Date(order.createdAt), "yyyy/MM/dd")}
-        </p>
+        <p className="text-muted-foreground text-xs">{format(new Date(order.createdAt), "yyyy/MM/dd")}</p>
       </div>
 
       <div className="flex items-center gap-2">
         <Map strokeWidth={1} size={16} />
-        <p className="text-muted-foreground text-xs truncate w-11/12">
-          {order.deliveryAddress}
-        </p>
+        <p className="text-muted-foreground text-xs truncate w-11/12">{order.deliveryAddress}</p>
       </div>
     </div>
   );
